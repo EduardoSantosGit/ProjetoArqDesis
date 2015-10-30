@@ -39,7 +39,7 @@ public class ListarItensJSON extends HttpServlet {
 		OutputStream out = response.getOutputStream();
 		out.write(lista.toJSON().getBytes());
 		out.flush();
-		
+/*		
 		ListarVeiculo vei = new ListarVeiculo();
 		ListarVeiculoTO listavei = vei.listarVeiculos();
 		response.setCharacterEncoding("UTF-8");
@@ -50,7 +50,7 @@ public class ListarItensJSON extends HttpServlet {
 		outp.write(listavei.toJSON().getBytes());
 		outp.flush();
 		
-		
+	
 		ListarCliente cli = new ListarCliente();
 		ListarClienteTO listacli = cli.listarClientes();
 		response.setCharacterEncoding("UTF-8");
@@ -60,7 +60,7 @@ public class ListarItensJSON extends HttpServlet {
 		OutputStream outpu = response.getOutputStream();
 		outpu.write(listacli.toJSON().getBytes());
 		outpu.flush();
-		
+*/		
 		
 	}
 

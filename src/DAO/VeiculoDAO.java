@@ -17,7 +17,7 @@ public abstract class VeiculoDAO {
 	
 	public abstract void alterar(Veiculo to);
 	
-	public abstract Veiculo pesquisar (String modelo);
+	public abstract Veiculo pesquisar (String chassi,String placa,String fabricante);
 	
 	public abstract ArrayList <Veiculo> listar(Veiculo to);
 

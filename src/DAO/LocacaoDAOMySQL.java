@@ -34,8 +34,8 @@ public class LocacaoDAOMySQL extends LocacaoDAO{
 			pst.setString(5, to.tipoTarifa);
 			pst.setString(6, to.agenciaLocacao);
 			pst.setString(7, to.agenciaPrevDevolucao);
-			pst.setDate(8, to.dataRetirada);
-			pst.setDate(9,to.dataDevolucao);
+			pst.setString(8, to.dataRetirada);
+			pst.setString(9,to.dataDevolucao);
 			pst.setDouble(10,to.acrescimo);
 			pst.setDouble(11, to.kmLocacao);
 			pst.setDouble(12, to.kmDevolucao);
@@ -119,7 +119,7 @@ public class LocacaoDAOMySQL extends LocacaoDAO{
 				pst.setString(4, to.localDevolucao);
 				pst.setDouble(3, to.kmDevolucao);
 				pst.setDouble(2,to.acrescimo);
-				pst.setDate(1, to.dataDevolucao);
+				pst.setString(1, to.dataDevolucao);
 				pst.execute();
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -167,8 +167,8 @@ public class LocacaoDAOMySQL extends LocacaoDAO{
 					to.tipoTarifa = rs.getString(6);
 					to.agenciaLocacao = rs.getString(7);
 					to.agenciaPrevDevolucao = rs.getString(8);
-					to.dataRetirada = rs.getDate(9);
-					to.dataDevolucao = rs.getDate(10);
+					to.dataRetirada = rs.getString(9);
+					to.dataDevolucao = rs.getString(10);
 					to.acrescimo = rs.getDouble(11);
 					to.kmLocacao = rs.getLong(12);
 					to.kmDevolucao = rs.getFloat(13);

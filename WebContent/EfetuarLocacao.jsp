@@ -41,6 +41,7 @@
 		</div>
 	</div>
 	
+<form action = "IncluirLocacaoController">	
 <div class="content-wrapper">
 		<div class="content">
 			<div class="content">
@@ -49,7 +50,7 @@
 				<div class="pure-g">
 					<div class="l-box-lrg pure-u-1">
 					<table class="pure-table">
-					<thead>
+					<thead>					
 			<tr>
 				<th>Chassi</th><th>Placa</th><th>Modelo</th><th>Fabricante</th><th>Estado</th><th>Cidade</th>
 				<th>KM Rodados</th><th>KM Livres</th>
@@ -59,37 +60,46 @@
 			</div>
 			</div>
 			
+			
 <fieldset>
+
+
  
- <form class="pure-form">
+ <div class="pure-form">
        <div class="pure-control-group">
-             <input id="CPF" type="text" placeholder="CPF">
-             <input id="Nome" type="text" placeholder="Nome">
+             <input name="cpf" type="text" placeholder="CPF">
+             <input name="nome" type="text" placeholder="Nome">
 		</div>
-</form>
-</fieldset>			
+</div>
+</fieldset>	
+
+	
+<div class="alert alert-success">
+					<h1>${mensagem}</h1>
+                    <h2>${Codcliente}</h2>
+                </div>
 
 <p>			
-
+<input type="submit" class="pure-button pure" name= "PesquisarCliente" value="PesquisarCliente"/>
 <a class="pure-button pure" href="IncluirCliente.jsp">Incluir</a>
-<a class="pure-button pure" href="Alterar.do">Alterar</a>
-<a class="pure-button pure" href="Incluir.do">Excluir</a>
-<a class="pure-button pure" href="Alterar.do">Detalhar</a>
-<a class="pure-button pure" href="Alterar.do">SelecionarCliente</a>
-
+<a class="pure-button pure" href="AlterarCliente.jsp">Alterar</a>
+<a class="pure-button pure" href="ExcluirCliente.jsp">Excluir</a>
+<a class="pure-button pure" href="DadosCliente.jsp">Detalhar</a>
+<input type="submit" class="pure-button pure" name= "SelecionarCliente" value="SelecionarCliente"/>
 <p>
+			
 			
 <fieldset>
  
- <form class="pure-form">
+ <div class="pure-form">
        <div class="pure-control-group">
-             <input id="DataRetirada"   type="text" placeholder="DataDeRetirada">
-             <input id="DataDevolucao"  type="text" placeholder="DataDeDevolucao">
-             <input id="LocalRetirada"  type="date" placeholder="LocalDaRetirada">
-             <input id="LocalDevolucao" type="date" placeholder="DataDeDevolucao">
+             <input name="DataRetirada"   type="text" placeholder="DataDeRetirada">
+             <input name="DataDevolucao"  type="text" placeholder="DataDeDevolucao">
+             <input name="LocalRetirada"  type="date" placeholder="LocalDaRetirada">
+             <input name="LocalDevolucao" type="date" placeholder="DataDeDevolucao">
                  
 		</div>
-</form>
+</div>
 </fieldset>	
 
 <p>
@@ -111,13 +121,11 @@
 
 <p>			
 
-<a class="pure-button pure" href="Incluir.do">Confirmar</a>
-<a class="pure-button pure" href="Alterar.do">Cancelar</a>
-    	
+<input type="submit" class="pure-button pure" name= "ConfirmarLocacao" value="ConfirmarLocacao"/>  
+<a class="pure-button pure" href="Alterar.do">Cancelar</a>  	
 			</div>
 		</div>
-	</div>
-				
-
+	</div>			
+</form>
 </body>
 </html>

@@ -14,8 +14,8 @@ public class Locacao {
 	   public String tipoTarifa;
 	   public String agenciaLocacao;
 	   public String agenciaPrevDevolucao;
-	   public Date dataRetirada;
-	   public Date dataDevolucao;
+	   public String dataRetirada;
+	   public String dataDevolucao;
 	   public double acrescimo;
 	   public double kmLocacao;
 	   public double kmDevolucao;
@@ -69,16 +69,16 @@ public class Locacao {
 	public void setAgenciaPrevDevolucao(String agenciaPrevDevolucao) {
 		this.agenciaPrevDevolucao = agenciaPrevDevolucao;
 	}
-	public Date getDataRetirada() {
+	public String getDataRetirada() {
 		return dataRetirada;
 	}
-	public void setDataRetirada(Date dataRetirada) {
+	public void setDataRetirada(String dataRetirada) {
 		this.dataRetirada = dataRetirada;
 	}
-	public Date getDataDevolucao() {
+	public String getDataDevolucao() {
 		return dataDevolucao;
 	}
-	public void setDataDevolucao(Date dataDevolucao) {
+	public void setDataDevolucao(String dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
 	public double getAcrescimo() {

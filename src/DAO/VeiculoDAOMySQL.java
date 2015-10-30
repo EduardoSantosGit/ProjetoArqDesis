@@ -34,7 +34,7 @@ public class VeiculoDAOMySQL extends VeiculoDAO{
 			
 			//configurar parametros
 		//	pst.setNull(1, Types.INTEGER);
-			pst.setInt(1, veiculo.chassi);
+			pst.setString(1, veiculo.chassi);
 			pst.setString(2, veiculo.placa);
 			pst.setString(3, veiculo.fabricante);
 			pst.setString(4, veiculo.cidade);
@@ -130,7 +130,7 @@ public class VeiculoDAOMySQL extends VeiculoDAO{
 		try {
 			conn = ConnFactory.conectar();
 			pst = conn.prepareStatement(inclusao);
-			pst.setInt(1, to.chassi);
+			pst.setString(1, to.chassi);
 			pst.setString(2, to.placa);
 			pst.setString(3, to.fabricante);
 			pst.setString(4, to.cidade);
@@ -185,7 +185,7 @@ public class VeiculoDAOMySQL extends VeiculoDAO{
 			pst = conn.prepareStatement(listar);
 			ResultSet resultSet = pst.executeQuery();
 			while(resultSet.next()) {
-				pst.setInt(1, to.chassi);
+				pst.setString(1, to.chassi);
 				pst.setString(2, to.placa);
 				pst.setString(3, to.fabricante);
 				pst.setString(4, to.cidade);
@@ -231,25 +231,27 @@ public class VeiculoDAOMySQL extends VeiculoDAO{
 	}
 
 	@Override
-	public Veiculo pesquisar(String modelo) {
+	public Veiculo pesquisar(String chassi,String placa,String fabricante) {
 		Veiculo vei = null;
-			String listar = "select * from Veiculo where chassi like=?";
+			String listar = "select * from Veiculo where (chassi like ? or placa like ? or fabricante like ?)";
 			Connection conn = null;
 			PreparedStatement pst = null;
 			ResultSet rs = null;
 			try {
 				conn = ConnFactory.conectar();
 				pst = conn.prepareStatement(listar);
-				pst.setString(1,modelo+"%");
+				pst.setString(1,chassi+"%");
+				pst.setString(2,placa+"%");
+				pst.setString(3,fabricante+"%");
 				ResultSet resultSet = pst.executeQuery();
 				if(resultSet.next()) {
 				
 					vei = new Veiculo();
 				
 					
-				vei.setChassi(resultSet.getInt("chassi"));	
+				vei.setChassi(resultSet.getString("chassi"));	
 				vei.setPlaca(resultSet.getString("placa"));	
-				vei.setModelo(resultSet.getString("modelo"));
+				//vei.setModelo(resultSet.getString("modelo"));
 				vei.setFabricante(resultSet.getString("fabricante"));
 
 				}

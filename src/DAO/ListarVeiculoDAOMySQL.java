@@ -33,7 +33,7 @@ public class ListarVeiculoDAOMySQL extends ListarVeiculoDAO{
 					rs = pst.executeQuery();
 					while(rs.next()){
 						VeiculoTO veiculo = TOFactory.getVeiculoTO();
-						veiculo.chassi = rs.getInt(1);
+						veiculo.chassi = rs.getString(1);
 						veiculo.placa = rs.getString(2);
 						veiculo.fabricante = rs.getString(3);
 						veiculo.cidade = rs.getString(4);
@@ -91,7 +91,7 @@ public class ListarVeiculoDAOMySQL extends ListarVeiculoDAO{
 					rs = pst.executeQuery();
 					while(rs.next()){
 						VeiculoTO veiculo = TOFactory.getVeiculoTO();
-						veiculo.chassi = rs.getInt(1);
+						veiculo.chassi = rs.getString(1);
 						veiculo.placa = rs.getString(2);
 						veiculo.fabricante = rs.getString(3);
 						veiculo.cidade = rs.getString(4);

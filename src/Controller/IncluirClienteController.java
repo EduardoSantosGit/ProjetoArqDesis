@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -76,8 +77,10 @@ public class IncluirClienteController extends HttpServlet {
 	catch (Exception e) {
 		e.printStackTrace();
 		}
+	RequestDispatcher rd = request.getRequestDispatcher(destino);
+	rd.forward(request, response);
 }
 	
-	
+
 	
 }

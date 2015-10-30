@@ -46,8 +46,8 @@ public class ListarLocacoesDAOMySQL extends ListarLocacoesDAO {
 						locacao.tipoTarifa = rs.getString(5);
 						locacao.agenciaLocacao = rs.getString(6);
 						locacao.agenciaPrevDevolucao = rs.getString(7);	
-						locacao.dataRetirada = rs.getDate(8);
-						locacao.dataDevolucao = rs.getDate(9);
+						locacao.dataRetirada = rs.getString(8);
+						locacao.dataDevolucao = rs.getString(9);
 						locacao.acrescimo = rs.getDouble(10);
 						locacao.kmLocacao = rs.getDouble(11);
 						locacao.kmDevolucao = rs.getDouble(12);			

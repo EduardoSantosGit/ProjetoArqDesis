@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import Model.Veiculo;
 import TO.VeiculoTO;
 
 public class ListarVeiculoTO extends ArrayList <VeiculoTO>{

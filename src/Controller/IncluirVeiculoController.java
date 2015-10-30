@@ -34,7 +34,7 @@ public class IncluirVeiculoController extends HttpServlet {
 	protected void service (HttpServletRequest request,HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//String destino = "ConsultaVeiculo.jsp";
+		String destino = "ConsultaVeiculo.jsp";
 		String acao = request.getParameter("botaoSalvar");
 		ArrayList <Veiculo> listaVeiculo;
 		
@@ -72,7 +72,7 @@ public class IncluirVeiculoController extends HttpServlet {
 			String tarifaKmLivre = request.getParameter("tarifaKmLivre");
 			String kmControlado = request.getParameter("tarifaKmControlado");
 			
-			veiculo.setChassi(Integer.parseInt(chassi));
+			veiculo.setChassi(chassi);
 			veiculo.setPlaca(placa);
 			veiculo.setModelo(modelo);
 			veiculo.setFabricante(fabricante);
@@ -91,8 +91,8 @@ public class IncluirVeiculoController extends HttpServlet {
 		catch (Exception e) {
 		e.printStackTrace();
 		}
-	//	RequestDispatcher rd = request.getRequestDispatcher(destino);
-	//	rd.forward(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher(destino);
+		rd.forward(request, response);
 		
 //	}
 	}		

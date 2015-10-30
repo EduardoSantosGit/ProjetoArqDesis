@@ -4,7 +4,7 @@ public class Veiculo {
 
 	
 	   public int codVeiculo;
-	   public int chassi;
+	   public String chassi;
 	   public String placa;
 	   public String fabricante;
 	   public String cidade;
@@ -25,10 +25,10 @@ public class Veiculo {
 	public void setCodVeiculo(int codVeiculo) {
 		this.codVeiculo = codVeiculo;
 	}
-	public int getChassi() {
+	public String getChassi() {
 		return chassi;
 	}
-	public void setChassi(int chassi) {
+	public void setChassi(String chassi) {
 		this.chassi = chassi;
 	}
 	public String getPlaca() {

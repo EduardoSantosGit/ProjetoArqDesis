@@ -22,10 +22,10 @@ public class ListarLocacoesTO extends ArrayList <LocacaoTO>{
 		for(LocacaoTO to:this){
 			JSONObject obj = new JSONObject();
 			try {
-				obj.put("dataRetirada",f.format(to.dataRetirada));
-				obj.put("dataDevolucao", (to.dataDevolucao != null?f.format(to.dataDevolucao):"")); 
+				obj.put("dataRetirada",to.dataRetirada);
+				obj.put("dataDevolucao",to.dataDevolucao); 
 				obj.put("localRetirada", to.localRetirada);
-				obj.put("localDevolucao", f.format(to.localDevolucao));
+				obj.put("localDevolucao",to.localDevolucao);
 				obj.put("tipoTarifa", to.tipoTarifa);
 				obj.put("agenciaLocacao", to.agenciaLocacao);
 				obj.put("agenciaPrevDevolucao", to.agenciaPrevDevolucao);

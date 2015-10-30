@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Model.Cliente;
+import Model.Veiculo;
 import TO.ClienteTO;
 
 public abstract class ClienteDAO {
@@ -18,4 +19,6 @@ public abstract class ClienteDAO {
 	public abstract void alterar(Cliente to);
 	
 	public abstract ArrayList <Cliente> listar(Cliente to);
+	
+	public abstract Cliente pesquisar (String nome,String cpf);
 }

@@ -3,7 +3,7 @@ package TO;
 public class VeiculoTO {
 	
 	   public int codVeiculo;
-	   public int chassi;
+	   public String chassi;
 	   public String placa;
 	   public String fabricante;
 	   public String cidade;

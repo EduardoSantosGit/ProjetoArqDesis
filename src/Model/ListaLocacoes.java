@@ -9,8 +9,8 @@ public class ListaLocacoes {
 		return DAOFactory.getListarLocacoesDAO().listarLocacoes();
 	}
 	
-	public ListarLocacoesTO listarLocacoes(int loc) {
+/*	public ListarLocacoesTO listarLocacoes(int loc) {
 		return DAOFactory.getListarLocacoesDAO().listarLocacoes(loc);
 	}
-
+*/
 }

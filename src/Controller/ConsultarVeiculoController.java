@@ -11,11 +11,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+
 import DAO.VeiculoDAOMySQL;
 import Model.ListarVeiculo;
 import Model.Veiculo;
 import TO.ClienteTO;
 import TO.ListarVeiculoTO;
+import Controller.ServiceLookup;
 
 
 /**
@@ -26,88 +29,64 @@ public class ConsultarVeiculoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	
-	
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
-	
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-	}	
-	}
-/*		String pesquisar = request.getParameter("botaoPesquisar");
-		String alocar = request.getParameter("botaoAlocarVeiculo");
-		String alocados = request.getParameter("botaoVeiculosAlocados");
-		ArrayList <Veiculo> listaVeiculo;
+	protected void service (HttpServletRequest request,HttpServletResponse response)
+			throws ServletException, IOException {
 		
 		Veiculo veiculo = new Veiculo();
 		VeiculoDAOMySQL dao = new VeiculoDAOMySQL();
 		
+		String destino = "ConsultaVeiculo.jsp";
+
+	   String button = request.getParameter("botaoPesquisarVeiculo");
 		
-		try {
-			if(pesquisar.equalsIgnoreCase("botaoPesquisar")){
-		//	veiculo.setChassi(Integer.parseInt(request.getParameter("chassi")));
-		//	veiculo.setPlaca(request.getParameter("Placa"));
-		//	veiculo.setModelo(request.getParameter("Modelo"));
-		//	veiculo.setFabricante(request.getParameter("Fabricante"));
-			Veiculo pesquiVei = dao.pesquisar(request.getParameter("Modelo"));
-				if(pesquiVei != null){
-					pesquiVei.getChassi();
-					pesquiVei.getPlaca();
-					pesquiVei.getModelo();
-					pesquiVei.getFabricante();
-				}
-			}
-			
-		//	if (alocar.equalsIgnoreCase("botaoAlocarVeiculo")){
-				
-	//		}
-			
-			
-		}catch (Exception e) {
-			e.printStackTrace();
+	   
+		
+		
+		if(button != null){	
+        	try {
+    			String chassi = request.getParameter("chassi");
+    			String placa = request.getParameter("placa");
+    			String fabricante = request.getParameter("fabricante");
+    		
+    			
+    		/*	veiculo.setChassi(chassi);
+    			veiculo.setPlaca(placa);
+    			veiculo.setFabricante(fabricante);*/
+    			
+    			veiculo = dao.pesquisar(chassi,placa,fabricante);
+    			request.setAttribute("ListaVeiculos", veiculo);
+    			destino = "ConsultaVeiculo.jsp";
+    			
+        	}	 catch (Exception e) {
+    			e.printStackTrace();
+    			}		
+        	}
+		else {
+			destino = "ConsultaVeiculo.jsp";
 		}
-		
-	}
-	  */
-/*	
-	@Override
-	public void init(ServletConfig config){
+        	
+    		//	List <String> carro = veiculo.getChassi()request.getAttribute("chassi");
+
+				RequestDispatcher rd = request.getRequestDispatcher(destino);
+				rd.forward(request, response);
+    			
+    			
+    			
+    		/*	try {
+    				List listaVeiculo = (List) dao.pesquisar(chassi,placa,fabricante);
+    				request.setAttribute("ListaVeiculos", listaVeiculo);
+    				RequestDispatcher rd = request.getRequestDispatcher("ConsultaVeiculo.jsp");
+    				rd.forward(request, response);
+    				
+    			}   catch (Exception e) {
+        			e.printStackTrace();
+        			}
+    		*/	
+    			
+        	}
+
+	/*public void init(ServletConfig config){
+		//todos os servlets do menu devem conter este metodo
 		ServiceLookup.setupDB();
-	}
-*/	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-       
-/*
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}	
-		
-	protected void doPost(HttpServletRequest request,
-				HttpServletResponse response) throws ServletException, IOException {
-			request.setCharacterEncoding("UTF-8");
-			
-			int vei = Integer.parseInt(request.getParameter("vei"));
-
-			ListarVeiculo liv = new ListarVeiculo();
-			ListarVeiculoTO lista = liv.listarVeiculos(vei);
-	
-		
-	}
-	*/
-
+	}*/
+}

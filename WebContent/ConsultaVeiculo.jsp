@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="UTF-8"%>
-<%@page import="java.text.*, java.util.*, TO.*"%>  
+<%@page import="java.text.*, java.util.*, TO.*,DAO.*,Model.*"%>  
 
 
 <!DOCTYPE html>
@@ -42,7 +42,7 @@
 	</div>
 	
 
-<form method="post" action="ConsultaVeiculoController"> 
+<form action = "ConsultaVeiculoController">
 
 	
 		<div class="content-wrapper">
@@ -54,10 +54,10 @@
  
  <div class="pure-form"> 
        <div class="pure-control-group">
-            <input id="Chassi" type="text" placeholder="Chassi" value ="${veiculo.chassi}">
-            <input id="Placa" type="text" placeholder="Placa" value ="${veiculo.placa}">
-            <input id="Modelo" type="text" placeholder="Modelo" value="${veiculo.modelo}">
-            <input id="Fabricante" type="text" placeholder="Fabricante" value ="${veiculo.fabricante}">
+             <input name="chassi" type="text" placeholder="Chassi">
+             <input name="placa" type="text" placeholder="Placa">
+     <!--          <input name="modelo" type="text" placeholder="Modelo"> -->
+             <input name="fabricante" type="text" placeholder="Fabricante">
         </div>
  </div>
 
@@ -65,13 +65,46 @@
 				
 <br />
 
-<button type="submit" class="pure-button pure"   name = "botaoPesquisar">Pesquisar</button>
+<input type="submit" class="pure-button pure" name= "botaoPesquisarVeiculo" value="Pesquisar"/>
+<!--<button type="submit" class="pure-button pure"  name = "botaoPesquisarVeiculo">Pesquisar</button>-->
 <a class="pure-button pure"  href="EfetuarLocacao.jsp">Alocar Veiculo</a>
 <a class="pure-button pure"  href="ConsultarVeiculoLocado.jsp">Veiculos Alocados</a>
 
 
 <p>
+					
+			<div class="pure-g">
+				<div class="l-box-lrg pure-u-1">
+				<table class="pure-table">
+				<thead>
+				<tr>
+				<th>Chassi</th><th>Placa</th><th>Fabricante</th>
+				</tr>
+				</thead><tbody>
+				
+				<% if(request.getAttribute("ListaVeiculos")!=null){
+					ListarVeiculoTO listaVeiculo = (ListarVeiculoTO) request.getAttribute("ListaVeiculos");
+				   int i = 0;
+				   for (VeiculoTO carro : listaVeiculo) {
+					   out.println("<tr"+ (++i%2==0?" class=\"pure-table-odd\"":"")+"><td>"+carro.chassi+"</td><td>"+carro.placa+"</td><td>"+
+								"</td><td>"+carro.fabricante+"</td></tr>");
+				   	}
+				   }
 
+				
+				%>
+
+
+				</tbody></table>
+				</div>
+			</div>
+
+
+
+
+
+
+<!--  
 <table class="pure-table">
     <thead>
         <tr>
@@ -91,7 +124,7 @@
     </tbody>
   </table>     
 
-
+-->
 <p>
 
 <a class="pure-button pure" href="IncluirVeiculo.jsp">Incluir</a>

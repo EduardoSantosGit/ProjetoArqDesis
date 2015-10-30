@@ -15,8 +15,8 @@ public class LocacaoTO implements Serializable{
 	   public String tipoTarifa;
 	   public String agenciaLocacao;
 	   public String agenciaPrevDevolucao;
-	   public Date dataRetirada;
-	   public Date dataDevolucao;
+	   public String dataRetirada;
+	   public String dataDevolucao;
 	   public double acrescimo;
 	   public double kmLocacao;
 	   public double kmDevolucao; 

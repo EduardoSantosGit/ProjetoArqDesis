@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import TO.ClienteTO;
 import Factory.ConnFactory;
 import Model.Cliente;
+import Model.Veiculo;
 
 public class ClienteDAOMySQL extends ClienteDAO{
 
@@ -219,6 +220,58 @@ public class ClienteDAOMySQL extends ClienteDAO{
 		return cliente;
 		
 	}
+	
+	@Override
+	public Cliente pesquisar(String nome,String cpf) {
+		Cliente cli = null;
+			String listar = "select * from Cliente where (nome like ? or CPF like ?)";
+			Connection conn = null;
+			PreparedStatement pst = null;
+			ResultSet rs = null;
+			try {
+				conn = ConnFactory.conectar();
+				pst = conn.prepareStatement(listar);
+				pst.setString(1,nome+"%");
+				pst.setString(2,cpf+"%");
+				ResultSet resultSet = pst.executeQuery();
+				if(resultSet.next()) {
+				
+					cli = new Cliente();
+				
+					
+				cli.setNome(resultSet.getString("nome"));	
+				cli.setCPF(resultSet.getString("CPF"));	
+				}
+			}	
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			finally {
+				if(rs != null){
+					try {
+						rs.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				if(pst != null){
+					try {
+						pst.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				if(conn != null){
+					try {
+						desconectar(conn);
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			return cli;
+		}
+
 
 	
 	
